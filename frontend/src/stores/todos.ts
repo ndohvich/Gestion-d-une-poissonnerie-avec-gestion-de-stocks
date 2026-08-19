@@ -1,0 +1,5 @@
+import { create } from 'zustand';
+import { api } from '../lib/api';
+export type Todo = { id:number; title:string; description:string; due_date?:string; priority:'low'|'medium'|'high'; tags:string[]; completed:boolean; position:number };
+type S={todos:Todo[]; load:()=>Promise<void>; create:(t:Partial<Todo>)=>Promise<void>; update:(id:number,t:Partial<Todo>)=>Promise<void>; remove:(id:number)=>Promise<void>; search:(q:string)=>Promise<void>};
+export const useTodos=create<S>((set,get)=>({todos:[], async load(){const {data}=await api.get('/api/todos'); set({todos:data});}, async create(t){const {data}=await api.post('/api/todos',t); set({todos:[...get().todos,data]});}, async update(id,t){const {data}=await api.put(`/api/todos/${id}`,t); set({todos:get().todos.map(x=>x.id===id?data:x)});}, async remove(id){await api.delete(`/api/todos/${id}`); set({todos:get().todos.filter(x=>x.id!==id)});}, async search(q){const {data}=await api.post('/api/todos/search',{query:q}); set({todos:data});}}));
