@@ -1,0 +1,1 @@
+export default { darkMode: 'class', content: ['./index.html','./frontend/src/**/*.{ts,tsx}'], theme: { extend: { fontFamily: { sans: ['Inter','ui-sans-serif'], mono: ['JetBrains Mono','monospace'] }, colors: { night: '#0A0A0F', neon: '#7C3AED', cyan: '#06B6D4' }, boxShadow: { glow: '0 0 60px rgba(124,58,237,.24)' } } }, plugins: [] };

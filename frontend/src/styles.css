@@ -1,0 +1,3 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+@tailwind base;@tailwind components;@tailwind utilities;
+@layer components{.glass{@apply rounded-2xl border border-white/10 bg-white/10 dark:bg-white/[.06] backdrop-blur-2xl shadow-glow transition hover:border-white/20}.primary{@apply inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-neon to-cyan px-5 py-3 font-bold text-white shadow-glow transition hover:scale-[1.01]}input,textarea,select{@apply w-full rounded-xl border border-white/10 bg-white/10 px-4 py-3 outline-none focus:border-cyan dark:text-white}textarea{@apply min-h-20}.search{@apply text-lg}.title{@apply border-0 bg-transparent p-0 text-xl font-bold}}
